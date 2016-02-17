@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_mobileset" value="name:row;datatype:int,name:tel_num;datatype:blob,name:service;datatype:blob,name:price;datatype:int" />
+</info>
