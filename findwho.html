@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FIND FLOODER</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#txtID').val('55040626');
+            $('#txtID').focus();
+            
+             $('#go').click(function(){
+               calnfind();
+                //$('iframe').attr({width:100%})
+             });
+             $(document).keypress(function(e) {
+                if(e.which == 13) {
+                    calnfind();
+                }
+            });
+             function calnfind(){
+                var id =  $('#txtID').val();
+                id = checkID(id);
+                $('iframe').remove()
+                $('<iframe />', { id: 'myFrame', src: 'http://www.scibase.kmutnb.ac.th/examroom/datatrain.php?IDcard='+id, frameborder:0,width:1000,height:300 }).appendTo('#show');
+             }
+             function checkID(id) {
+                if(id.length != 12) return alert('ใส่ให้ครบ 12 ดิวะสัส');
+                for(i=0, sum=0; i < 12; i++)
+                    sum += parseFloat(id.charAt(i))*(13-i);
+                // if((11-sum%11)%10!=parseFloat(id.charAt(12)))
+                //     return false;
+                var lastnum = (11-sum%11)%10;
+                //alert(lastnum);
+                return id+lastnum;
+            }
+
+                   
+
+        });
+    </script>
+    <style type="text/css">
+        iframe, object, embed {
+            max-width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+        <p>Powered by Zuuuuuuuuuuuuuuuuuuuuuuuuuuuuuletzt</p>
+  </div>
+</nav>
+    <div class="container">
+        <div class="row" style="margin-top:5%">
+            <div class="col-md-4">
+                <p style="font-size:150%">INPUT FUCKER FLOODER's ID:</p>
+            </div>
+            <div class="col-md-3">
+                 <input type="text" id="txtID" class="form-control" maxlength="12" />
+            </div>
+            <div class="col-md-1">
+                <button type="button" id="go" class="btn btn-primary">GO!</button>
+            </div>
+        </div>
+       <div id="show" style="margin-top:5%"></div>
+    </div>
+</body>
+</html>
+
+
+
+    
+
